@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-    private List<Usuario> usuarios;
+    private final List<Usuario> usuarios;
 
     public UsuarioDAO() {
         usuarios = new ArrayList<>();

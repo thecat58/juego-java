@@ -4,7 +4,6 @@ import Controlador.AdminControlador;
 import Controlador.JugadorControlador;
 import Controlador.LoginControlador;
 import Modelo.Usuario;
-import Modelo.UsuarioDAO;
 import Vista.AdminVista;
 import Vista.JugadorVista;
 import Vista.LoginVista;
@@ -14,6 +13,7 @@ import Modelo.Llave;
 import Modelo.Mago;
 import Modelo.Objeto;
 import Modelo.Pocion;
+import Modelo.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -34,9 +34,9 @@ public class Aventuras {
             } else if (usuario.getRol().equals("jugador")) {
                 JugadorVista jugadorVista = new JugadorVista();
                 JugadorControlador jugadorControlador = new JugadorControlador(jugadorVista);
-                jugadorControlador.iniciar();
-                iniciarJuego();
+                jugadorControlador.iniciar(); // iniciarJuego() será llamado desde JugadorControlador
             }
+            
         }
     }
 
