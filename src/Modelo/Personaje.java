@@ -1,19 +1,18 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Modelo;
+ */package Modelo;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 public abstract class Personaje {
     private String nombre;
     private int vida;
     private int energia;
-    private ArrayList<Objeto> inventario;
+    private List<Objeto> inventario;
 
-    public Personaje(String nombre, int vida, int energia){
+    public Personaje(String nombre, int vida, int energia) {
         this.nombre = nombre;
         this.vida = vida;
         this.energia = energia;
@@ -27,7 +26,6 @@ public abstract class Personaje {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
 
     public int getVida() {
         return vida;
@@ -45,24 +43,13 @@ public abstract class Personaje {
         this.energia = energia;
     }
 
-    public ArrayList<Objeto> getInventario() {
+    public List<Objeto> getInventario() {
         return inventario;
     }
 
-    public void setInventario(ArrayList<Objeto> inventario) {
-        this.inventario = inventario;
-    }
-
-    @Override
-    public String toString() {
-        return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", energia=" + energia + ", inventario=" + inventario + '}';
-    }
-
-    
-
-    public void Agregar_Objeto(Objeto obj){
+    public void agregarObjeto(Objeto obj) {
         inventario.add(obj);
     }
-    
-    abstract void Usar_Objeto(Objeto obj);  
+
+    public abstract void usarObjeto(Objeto obj);
 }
