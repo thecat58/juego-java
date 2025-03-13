@@ -36,4 +36,13 @@ public class Mago extends Personaje implements Ataque {
         curacion = obj.usar();
         this.setEnergia(getEnergia() + curacion);
     }
+
+    // Métodos para editar atributos
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
 }

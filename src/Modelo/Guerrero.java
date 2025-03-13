@@ -85,4 +85,12 @@ public class Guerrero extends Personaje implements Ataque {
         System.out.println(ObjLlave.getNombre() + " ha sido agregado al inventario de " + getNombre());
     }
 
+    // Métodos para editar atributos
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
 }

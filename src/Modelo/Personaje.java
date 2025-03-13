@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Personaje {
-    private String nombre;
-    private int vida;
-    private int energia;
-    private List<Objeto> inventario;
+    protected String nombre;
+    protected int vida;
+    protected int energia;
+    protected List<Objeto> inventario;
 
     public Personaje(String nombre, int vida, int energia) {
         this.nombre = nombre;
