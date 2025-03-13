@@ -1,8 +1,12 @@
-package Controlador;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package aventuras;
 
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
-import Vista.LoginVista;
+import vista.LoginVista;
 
 public class LoginControlador {
     private UsuarioDAO usuarioDAO;

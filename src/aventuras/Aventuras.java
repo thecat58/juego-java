@@ -2,18 +2,17 @@ package aventuras;
 
 import Control.AdminControlador;
 import Control.JugadorControlador;
-import Control.LoginControlador;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import vista.AdminVista;
-import vista.JugadorVista;
 import vista.LoginVista;
 import Modelo.Arma;
 import Modelo.Guerrero;
 import Modelo.Llave;
 import Modelo.Mago;
-import Modelo.Objeto;
 import Modelo.Pocion;
+import Vista.JugadorVista;
+
 import java.util.Scanner;
 
 public class Aventuras {

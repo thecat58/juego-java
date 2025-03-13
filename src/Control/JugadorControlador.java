@@ -1,4 +1,4 @@
-package Controlador;
+package Control;
 
 import Vista.JugadorVista;
 import aventuras.Aventuras; 
