@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 import Control.Ataque;
 
 public class Guerrero extends Personaje implements Ataque {
@@ -62,5 +64,27 @@ public class Guerrero extends Personaje implements Ataque {
         } else {
             System.out.println("No tienes más poción");
         }
+    }
+
+    public void agregarObjeto(Objeto objeto) {
+        if (inventario == null) {
+            inventario = new ArrayList<>();
+        }
+        inventario.add(objeto);
+    }
+
+    public void agregarObjeto(Pocion ObjPocion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void agregarObjeto(Llave ObjLlave) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void usarObjeto(Pocion ObjPocion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -1,7 +1,7 @@
 package Controlador;
 
 import Vista.JugadorVista;
-
+import aventuras.Aventuras; 
 public class JugadorControlador {
     private JugadorVista jugadorVista;
 
@@ -17,7 +17,7 @@ public class JugadorControlador {
             switch (opcion) {
                 case 1:
                     jugadorVista.mostrarMensaje("Iniciando juego...");
-                    // Aquí puedes llamar al método para iniciar el juego
+                    Aventuras.iniciarJuego(); // Llamada directa desde aquí
                     break;
                 case 2:
                     jugadorVista.mostrarMensaje("Saliendo...");

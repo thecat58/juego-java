@@ -22,4 +22,8 @@ public class Llave extends Objeto {
     int usar() {
         return 1;
     }
+
+    public boolean abrir(Guerrero ObjGuerrero) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

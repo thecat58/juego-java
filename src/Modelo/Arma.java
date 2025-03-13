@@ -23,7 +23,7 @@ public class Arma extends Objeto{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-                                                444444444444444444444444 34
+                                                
 
     public int getDano() {
         return dano;
