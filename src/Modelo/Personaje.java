@@ -23,10 +23,6 @@ public abstract class Personaje {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public int getVida() {
         return vida;
     }
@@ -47,7 +43,7 @@ public abstract class Personaje {
         return inventario;
     }
 
-    public void agregarObjeto(Objeto obj) {
+    public void Agregar_Objeto(Objeto obj) {
         inventario.add(obj);
     }
 

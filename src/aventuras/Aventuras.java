@@ -4,6 +4,7 @@ import Controlador.AdminControlador;
 import Controlador.JugadorControlador;
 import Controlador.LoginControlador;
 import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import Vista.AdminVista;
 import Vista.JugadorVista;
 import Vista.LoginVista;
@@ -13,7 +14,6 @@ import Modelo.Llave;
 import Modelo.Mago;
 import Modelo.Objeto;
 import Modelo.Pocion;
-import Modelo.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -34,9 +34,9 @@ public class Aventuras {
             } else if (usuario.getRol().equals("jugador")) {
                 JugadorVista jugadorVista = new JugadorVista();
                 JugadorControlador jugadorControlador = new JugadorControlador(jugadorVista);
-                jugadorControlador.iniciar(); // iniciarJuego() será llamado desde JugadorControlador
+                jugadorControlador.iniciar();
+                iniciarJuego();
             }
-            
         }
     }
 
@@ -44,7 +44,6 @@ public class Aventuras {
         Guerrero ObjGuerrero = new Guerrero("Arturo");
         Mago ObjMago = new Mago("Merlin");
         Arma ObjArma = new Arma("Espada", 30);
-        List<Objeto> Objeto = new ArrayList<>();
         Pocion ObjPocion = new Pocion("Pocion", 40);
         Llave ObjLlave = new Llave("Maestra");
         Scanner t = new Scanner(System.in);
@@ -64,53 +63,43 @@ public class Aventuras {
                 ObjGuerrero.agregarObjeto(ObjArma);
                 ObjGuerrero.agregarObjeto(ObjPocion);
 
-                for (Objeto objeto : ObjGuerrero.getInventario()) {
-                    if (objeto.getClass() == Arma.class) {
-                        Objeto.add(objeto);
+                while (ObjMago.getVida() > 0 && ObjGuerrero.getVida() > 0) {
+                    System.out.println("\nSelecciona el objeto que deseas usar: ");
+                    System.out.println("1. Espada");
+                    System.out.println("2. Pocion");
+
+                    int seleccion = t.nextInt();
+                    if (seleccion == 1) {
+                        ObjGuerrero.atacar(ObjMago, ObjArma);
+                    } else if (seleccion == 2) {
+                        ObjGuerrero.usarObjeto(ObjPocion);
+                    }
+
+                    System.out.println("\nVida de " + ObjMago.getNombre() + ": " + ObjMago.getVida());
+                    System.out.println("Energia de " + ObjMago.getNombre() + ": " + ObjMago.getEnergia());
+
+                    if (ObjMago.getVida() > 0) {
+                        ObjMago.atacar(ObjGuerrero, ObjLlave);
+                        System.out.println("\n!!! Oh noo " + ObjMago.getNombre() + " lanzo un hechizo a tu guerrero!!!");
+                        System.out.println("Vida del guerrero: " + ObjGuerrero.getVida());
+                        System.out.println("Energia del guerrero: " + ObjGuerrero.getEnergia());
                     }
                 }
-                do {
-                    System.out.println("");
-                    System.out.println("Selecciona el objeto que deseas usar: ");
-                    for (Objeto obj : ObjGuerrero.getInventario()) {
-                        System.out.println(ObjGuerrero.getInventario().indexOf(obj) + 1 + ". " + obj.getNombre());
-                    }
-                    int op3 = t.nextInt();
-                    if (op3 == 1) {
-                        if (ObjGuerrero.getEnergia() > 20) {
-                            ObjGuerrero.atacar(ObjMago, ObjArma);
-                            System.out.println("\nVida de Merlin: " + ObjMago.getVida() + "\nEnergia de Merlin: " + ObjMago.getEnergia());
-                            if (ObjMago.getVida() <= 0) {
-                                ObjMago.getInventario().remove(ObjLlave);
-                                ObjGuerrero.agregarObjeto(ObjLlave);
-                                if (ObjLlave.abrir(ObjGuerrero) == true) {
-                                    System.out.println("\nHas derrotado a Merlin !!! ");
-                                    System.out.println("Puedes tomar la llave para abrir la puerta y pasar al siguiente nivel");
-                                }
-                            } else {
-                                if (ObjGuerrero.getVida() >= 0) {
-                                    if (ObjMago.getEnergia() > 10) {
-                                        ObjMago.atacar(ObjGuerrero, ObjArma);
-                                        System.out.println("\nVida del guerrero: " + ObjGuerrero.getVida() + "\nEnergia del guerrero: " + ObjGuerrero.getEnergia());
-                                    } else {
-                                        System.out.println("\nMerlin no puede lanzar un hechizo por que no tiene energia");
-                                    }
-                                } else {
-                                    System.out.println("\nEl ganador es : " + ObjMago.getNombre());
-                                }
-                            }
-                        } else {
-                            System.out.println("!!! No tienes suficiente energia para atacar !!!");
-                            System.out.println("Debes tomar la pocion para recuperarte");
-                        }
-                    } else {
-                        ObjGuerrero.usarObjeto(ObjPocion);
-                        System.out.println("Has aumentado tu energia!!! ");
-                        System.out.println("Puedes atacar de nuevo");
-                    }
-                } while ((ObjMago.getVida() > 0) || (ObjGuerrero.getVida() > 0));
+
+                if (ObjGuerrero.getVida() > 0) {
+                    System.out.println("\nFELICITACIONES!!! HAS DERROTADO AL MAGO!!!");
+                } else {
+                    System.out.println("\nHAS SIDO DERROTADO!!!");
+                }
                 break;
+
+            case 2:
+                System.out.println("Saliendo del juego...");
+                break;
+
             default:
+                System.out.println("Opcion no valida");
+                break;
         }
     }
 
@@ -120,3 +109,7 @@ public class Aventuras {
         }
     }
 }
+
+
+
+

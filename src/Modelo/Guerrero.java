@@ -5,7 +5,6 @@
 package Modelo;
 
 import java.util.ArrayList;
-
 import Control.Ataque;
 
 public class Guerrero extends Personaje implements Ataque {
@@ -66,25 +65,24 @@ public class Guerrero extends Personaje implements Ataque {
         }
     }
 
-    public void agregarObjeto(Objeto objeto) {
-        if (inventario == null) {
-            inventario = new ArrayList<>();
-        }
-        inventario.add(objeto);
+    public void agregarObjeto(Objeto obj) {
+        getInventario().add(obj);
+        System.out.println(obj.getNombre() + " ha sido agregado al inventario de " + getNombre());
+    }
+
+    public void agregarObjeto(Arma ObjArma) {
+        getInventario().add(ObjArma);
+        System.out.println(ObjArma.getNombre() + " ha sido agregado al inventario de " + getNombre());
     }
 
     public void agregarObjeto(Pocion ObjPocion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        getInventario().add(ObjPocion);
+        System.out.println(ObjPocion.getNombre() + " ha sido agregado al inventario de " + getNombre());
     }
 
     public void agregarObjeto(Llave ObjLlave) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        getInventario().add(ObjLlave);
+        System.out.println(ObjLlave.getNombre() + " ha sido agregado al inventario de " + getNombre());
     }
 
-    public void usarObjeto(Pocion ObjPocion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
