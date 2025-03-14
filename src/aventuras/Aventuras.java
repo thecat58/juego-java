@@ -3,7 +3,7 @@ package aventuras;
 import Control.AdminControlador;
 import Control.JugadorControlador;
 import Modelo.Usuario;
-import Modelo.UsuarioDAO;
+import Modelo.ListarUsuario;
 import vista.AdminVista;
 import vista.LoginVista;
 import Modelo.Arma;
@@ -11,16 +11,16 @@ import Modelo.Guerrero;
 import Modelo.Llave;
 import Modelo.Mago;
 import Modelo.Pocion;
-import Vista.JugadorVista;
+import vista.JugadorVista;
 
 import java.util.Scanner;
 
 public class Aventuras {
 
     public static void main(String[] args) {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        ListarUsuario ListarUsuario = new ListarUsuario();
         LoginVista loginVista = new LoginVista();
-        LoginControlador loginControlador = new LoginControlador(usuarioDAO, loginVista);
+        LoginControlador loginControlador = new LoginControlador(ListarUsuario, loginVista);
 
         Usuario usuario = loginControlador.autenticar();
         if (usuario != null) {

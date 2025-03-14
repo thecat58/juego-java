@@ -5,21 +5,21 @@
 package aventuras;
 
 import Modelo.Usuario;
-import Modelo.UsuarioDAO;
+import Modelo.ListarUsuario;
 import vista.LoginVista;
 
 public class LoginControlador {
-    private UsuarioDAO usuarioDAO;
+    private ListarUsuario ListarUsuario;
     private LoginVista loginVista;
 
-    public LoginControlador(UsuarioDAO usuarioDAO, LoginVista loginVista) {
-        this.usuarioDAO = usuarioDAO;
+    public LoginControlador(ListarUsuario ListarUsuario, LoginVista loginVista) {
+        this.ListarUsuario = ListarUsuario;
         this.loginVista = loginVista;
     }
 
     public Usuario autenticar() {
         String[] credenciales = loginVista.mostrarLogin();
-        Usuario usuario = usuarioDAO.autenticar(credenciales[0], credenciales[1]);
+        Usuario usuario = ListarUsuario.autenticar(credenciales[0], credenciales[1]);
         if (usuario != null) {
             loginVista.mostrarMensaje("Autenticación exitosa. Bienvenido " + usuario.getNombre());
         } else {

@@ -1,6 +1,6 @@
 package Control;
 
-import Vista.JugadorVista;
+import vista.JugadorVista;
 import aventuras.Aventuras; 
 public class JugadorControlador {
     private JugadorVista jugadorVista;

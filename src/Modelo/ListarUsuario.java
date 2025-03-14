@@ -3,10 +3,10 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO {
+public class ListarUsuario {
     private final List<Usuario> usuarios;
 
-    public UsuarioDAO() {
+    public ListarUsuario() {
         usuarios = new ArrayList<>();
         // Agregar usuarios de ejemplo
         usuarios.add(new Usuario("admin", "admin123", "admin"));
