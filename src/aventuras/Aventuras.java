@@ -1,5 +1,9 @@
-package aventuras;
+//creadores:   Ana Rocio Maya Cruz - Santiago Alexis Ordóñez segura - Andrés Felipe Suaza Ceron-Diego David López Guevara- Cristian Alexis Chantre  
 
+//editores:Jessica Vanesa Acosta Galindez Kevin Daniel Bermudez Zamora-Jorge Enrique Muñoz Dulcey- Cristian Camilo Ruiz Rivera Duban Alexander Gomez Hoyos
+
+
+package aventuras;
 import Control.AdminControlador;
 import Control.JugadorControlador;
 import Modelo.Usuario;
